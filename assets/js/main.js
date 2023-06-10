@@ -24,3 +24,20 @@ window.onscroll = function () {
 }
 
 window.scrollTo(0, 1);
+
+//audio
+let soundBtn = document.querySelector('.sound-btn');
+let audio = document.querySelector('.audio');
+
+soundBtn.addEventListener('click', function (e) {
+    soundBtn.classList.toggle('paused');
+    audio.paused ? audio.play() : audio.pause();
+})
+
+window.onfocus = function () {
+    soundBtn.classList.contains('paused') ? audio.pause() : audio.play();
+}
+
+window.onblur = function () {
+    audio.pause();
+}
